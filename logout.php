@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 $_SESSION["username"] = "";
 $_SESSION["firstname"] = "";

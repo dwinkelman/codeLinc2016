@@ -25,12 +25,14 @@
 			<!-- load thread post tool -->
 			<?php
 			if(isset($_SESSION["username"])){
-				$new_thread = false;
-				$post_topic = $_GET["topic"];
-				$post_thread_name = $_GET["name"];
-				$post_full_thread_name = $_GET["fullname"];
-				$post_username = $_SESSION["username"];
-				require_once "postbox.php";
+				if($_SESSION["username"] != ""){
+					$new_thread = false;
+					$post_topic = $_GET["topic"];
+					$post_thread_name = $_GET["name"];
+					$post_full_thread_name = $_GET["fullname"];
+					$post_username = $_SESSION["username"];
+					require_once "postbox.php";
+				}
 			}else{
 				echo "Please log in or sign up to post replies.";
 			}
