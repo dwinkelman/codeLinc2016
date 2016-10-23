@@ -1,5 +1,34 @@
+.panel.half-width {
+	width:100%;
+	max-width:500px;
+}
+
 .badge-img {
 	height:30px;
 	position:absolute;
 	right:50px;
+}
+
+.share img {
+	height:45px;
+	margin:0 15px;
+}
+.share {
+	width:30%;
+}
+.share img.google:hover {
+	background-color:#d34836;
+	border-radius:11px;
+}
+.share img.facebook:hover {
+	background-color:#3b5998;
+	border-radius:11px;
+}
+.share img.twitter:hover {
+	background-color:#1dcaff;
+	border-radius:11px;
+}
+
+.form-check-label input {
+	padding-right:40px;
 }

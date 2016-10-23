@@ -4,6 +4,6 @@
 	
 	<!-- need a subdiv to have proper padding -->
 	<div class="footer-text">
-		Copyright 2016 by Team Devtano (Daniel Winkelman, William Martinek, Owen Zook, Jacob Walker) for the codeLinc3.0 Hackathon.
+		Team Devtano from Atkins High School (Daniel Winkelman, William Martinek, Owen Zook, Jacob Walker) for the <<span/>codeLinc3.0/> Hackathon.
 	</div>
 </div>

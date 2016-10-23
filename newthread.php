@@ -1,7 +1,6 @@
 <?php session_start(); ?>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="styles/everything.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,25 +13,25 @@
 		
 		<div class="content">
 			<!-- thread title -->
-			<h1><?php echo $_GET["fullname"];?></h1>
-			
-			<!-- load thread from database -->
+			<h1>
 			<?php
-			require_once "threads.php";
-			LoadThread($_GET["topic"], $_GET["name"]);
-			?>
+			$titles = [
+			"qa" => "Volunteer Question & Answer",
+			"xp" => "Experience Share",
+			"sb" => "Suggestions & Brainstorming",
+			"te" => "Teachers"];
+			echo $titles[$_GET["topic"]];
+			?></h1>
 			
 			<!-- load thread post tool -->
 			<?php
 			if(isset($_SESSION["username"])){
-				$new_thread = false;
+				$new_thread = true;
 				$post_topic = $_GET["topic"];
-				$post_thread_name = $_GET["name"];
-				$post_full_thread_name = $_GET["fullname"];
 				$post_username = $_SESSION["username"];
 				require_once "postbox.php";
 			}else{
-				echo "Please log in or sign up to post replies.";
+				echo "Please log in or sign up to post threads.";
 			}
 			?>
 		</div>

@@ -27,3 +27,19 @@
 .flagged {
 	background-color:#FF7F00;
 }
+
+.panel-footer .glyphicon {
+	margin:4px;
+}
+.panel-footer .glyphicon:hover {
+	padding:4px;
+	border-radius:4px;
+	margin:0px;
+	cursor:pointer;
+}
+.panel-footer .glyphicon-thumbs-up:hover {
+	background-color:#888;
+}
+.panel-footer .glyphicon-hand-down:hover {
+	background-color:#a00;
+}

@@ -1,6 +1,7 @@
+<?php session_start(); ?>
 <html>
 	<head>
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -29,15 +30,15 @@
 				}
 			}
 			?>
-			<div class="panel panel-default">
+			<div class="panel panel-default half-width">
 				<div class="panel-heading">
 					<div class="panel-title">Hours Volunteered</div>
 				</div>
 				<div class="panel-body">
 					<div class="list-group">
 						<li class="list-group-item">
-							<span class="badge">
-								<?php echo round($userview["user-volunteer-minutes"] / 60) . " hours " . round($userview["user-volunteer-minutes"] % 60) . " minutes";?>
+							<span class="badge">hours
+								<?php echo round($userview["user-volunteer-minutes"] / 60) . "  " . round($userview["user-volunteer-minutes"] % 60) . " minutes";?>
 							</span>
 							Total Hours
 						</li>
@@ -56,7 +57,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="panel panel-default">
+			<div class="panel panel-default half-width">
 				<div class="panel-heading">
 					<div class="panel-title">Volunteering Badges</div>
 				</div>
@@ -93,7 +94,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="panel panel-default">
+			<div class="panel panel-default half-width">
 				<div class="panel-heading">
 					<div class="panel-title">Forum</div>
 				</div>
@@ -133,6 +134,16 @@
 							<img class="badge-img" src="res/medals/gold.png"/>
 						</li>
 					</div>
+				</div>
+			</div>
+			<div class="panel panel-default half-width">
+				<div class="panel-heading">
+					<div class="panel-title">Share</div>
+				</div>
+				<div class="panel-body">
+					<span class="share facebook"><a href="http://www.facebook.com"><img class="facebook" src="res/facebook.png"/></a></span>
+					<span class="share"><a href="http://www.plus.google.com"><img class="google" src="res/google.png"/></a></span>
+					<span class="share twitter"><a href="http://www.twitter.com"><img class="twitter" src="res/twitter.png"/></a></span>
 				</div>
 			</div>
 		</div>

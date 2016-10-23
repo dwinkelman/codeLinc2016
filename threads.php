@@ -15,7 +15,7 @@ function LoadThreads($topic){
 	}
 
 	// thanks, Tim!!!!
-	$sql = "SELECT f1.* FROM `forum` AS f1 INNER JOIN (SELECT `thread-name`, COUNT(*), MIN(`time-posted`) AS max_time_posted FROM `forum` WHERE `topic`='$topic' GROUP BY `thread-name` ORDER BY max_time_posted ASC) AS f2 ON f1.`thread-name`=f2.`thread-name` AND f1.`time-posted`=f2.max_time_posted";
+	$sql = "SELECT f1.* FROM `forum` AS f1 INNER JOIN (SELECT `thread-name`, COUNT(*), MIN(`time-posted`) AS min_time_posted FROM `forum` WHERE `topic`='$topic' GROUP BY `thread-name` ORDER BY min_time_posted DESC) AS f2 ON f1.`thread-name`=f2.`thread-name` AND f1.`time-posted`=f2.min_time_posted";
 	$result = $conn->query($sql);
 
 	return $result;
@@ -37,7 +37,9 @@ function PrintThreads($rows){
 						' . $row["html-contents"] . '
 					</div>
 					<div class="panel-footer forum-details">
-						<span class="username"><a href=user.php?username=' . $row["username"] . '>' . $row["username"] . '</a></span><span class="date">' . $row["time-posted"] . '</span>
+						<span class="username"><a href=user.php?username=' . $row["username"] . '>' . $row["username"] . '</a></span>
+						<span class="date">' . $row["time-posted"] . '</span>
+						<span class="rep">' . (($row["flags"] != 0) ? '(Flagged)' : $row["rep"] . ' Upvotes') . '</span>
 					</div>
 				</div>
 			</div>';
@@ -82,7 +84,9 @@ function LoadThread($topic, $thread_name){
 					<div class="panel-footer forum-details ' . (($row["flags"] != 0) ? 'flagged' : '') . '">
 						<span class="username"><a href=user.php?username=' . $row["username"] . '>' . $row["username"] . '</a></span>
 						<span class="date">' . $row["time-posted"] . '</span>
-						<span class="rep">' . (($count != 0) ? '(Flagged)' : $row["rep"] . ' Upvote') . '</span>
+						<span class="rep">' . (($row["flags"] != 0) ? '(Flagged)' : $row["rep"] . ' Upvotes') . '</span>
+						<span class="glyphicon glyphicon-thumbs-up glyphicon-align-right" title="Upvote"></span>
+						<span class="glyphicon glyphicon-hand-down glyphicon-align-right" title="Flag as abusive"></span>
 					</div>
 				</div>
 			</div>';

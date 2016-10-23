@@ -7,6 +7,10 @@ html, body {
 	font-family:Open Sans;
 }
 
+* {
+	box-sizing:border-box;
+}
+
 .content {
 	min-height:100%;
 	margin:30px;

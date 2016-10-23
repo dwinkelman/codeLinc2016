@@ -1,5 +1,24 @@
 <div class="header">
 	<link rel="stylesheet" type="text/css" href="styles/header-footer.css"/>
+	<title>Junior Achievement</title>
+	
+	<script>
+	$(document).ready(function()
+	{
+		var e = $('.dropdown-menu');
+		var jWindow = $(window);
+		var offsetTop = e.offset().top;
+		var positionTop = e.position().top;
+
+		jWindow.scroll(function()
+		{
+			if(jWindow.scrollTop() > offsetTop)
+				e.css({'position':'fixed', 'top':0});
+			else
+				e.css({'position':'relative', 'top':positionTop});
+		});
+	});
+	</script>
 	
 	<!-- logos are a couple of images with transparent backgrounds, the main JA logo on the left and the volunteer site on the right -->
 	<div class="logo-banner">
@@ -22,8 +41,9 @@
 		<!-- get specific user information here. Replace "User Information" with the user's name
 				also replace with "Log in" if the username == "guest" -->
 		<?php
-		$_SESSION["firstname"] = "Daniel";
-		$_SESSION["lastname"] = "Winkelman";
+		//$_SESSION["username"] = "dwinkelman";
+		//$_SESSION["firstname"] = "Daniel";
+		//$_SESSION["lastname"] = "Winkelman";
 		if(!isset($_SESSION["username"])){
 			require_once "login.php";
 			require_once "signup.php";
