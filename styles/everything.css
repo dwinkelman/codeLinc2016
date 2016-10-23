@@ -11,3 +11,16 @@ html, body {
 	min-height:100%;
 	margin:30px;
 }
+
+.btn {
+	background-color:#008752;
+}
+
+.date {
+	color:#888;
+	padding:0 10px;
+}
+
+.username a {
+	padding:0 10px;
+}

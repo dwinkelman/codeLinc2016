@@ -13,17 +13,15 @@
 		<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="forum.php">Volunteer Forums</a>
 			<ul class="dropdown-menu">
-				<li><a href="forum.php">Forum</a></li>
-				<li><a href="forum.php">Forum</a></li>
-				<li><a href="forum.php">Forum</a></li>
-				<li><a href="forum.php">Forum</a></li>
-				<li><a href="forum.php">Forum</a></li>
+				<li><a href="forum.php?topic=qa">Volunteer Question & Answer</a></li>
+				<li><a href="forum.php?topic=xp">Experience Share</a></li>
+				<li><a href="forum.php?topic=sb">Suggestions & Brainstorming</a></li>
+				<li><a href="forum.php?topic=te">Teachers</a></li>
 			</ul>
 		</li>
 		<!-- get specific user information here. Replace "User Information" with the user's name
 				also replace with "Log in" if the username == "guest" -->
 		<?php
-		$_SESSION["username"] = "dwinkelman";
 		$_SESSION["firstname"] = "Daniel";
 		$_SESSION["lastname"] = "Winkelman";
 		if(!isset($_SESSION["username"])){
@@ -33,7 +31,7 @@
 			require_once "login.php";
 			require_once "signup.php";
 		}else{
-			echo '<li><a href="me.php">' . $_SESSION["firstname"] . " " . $_SESSION["lastname"] . "'s Profile</a></li>";
+			echo '<li><a href="user.php?username=' . $_SESSION["username"] . '">' . $_SESSION["firstname"] . " " . $_SESSION["lastname"] . "'s Profile</a></li>";
 			echo '<li><a href="logout.php">Log Out</a></li>';
 		}
 		?>

@@ -1,0 +1,29 @@
+.forum-item-preview {
+	
+}
+
+.forum-item-preview .forum-title {
+	font-size:1.5em;
+}
+
+.forum-title a:hover {
+	text-decoration:none;
+}
+
+.forum-item-preview .forum-contents {
+	max-height:150px;
+	overflow:ellipses;
+}
+
+.forum-question .forum-contents {
+	font-weight:bold;
+}
+
+.rep {
+	float:right;
+	right:20px;
+}
+
+.flagged {
+	background-color:#FF7F00;
+}

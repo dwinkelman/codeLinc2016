@@ -1,10 +1,11 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="styles/everything.css"/>
+		
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/everything.css"/>
 	</head>
 	<body>
 		<!-- include header here -->
@@ -13,31 +14,21 @@
 		<div class="content">
 			<?php
 				require_once "loaduser.php";
-				LoadUser($_SESSION["username"]);
+				$userview = LoadUser($_GET["username"]);
 			?>
 			
-			<link rel="stylesheet" type="text/css" href="styles/me.css"/>
+			<link rel="stylesheet" type="text/css" href="styles/user.css"/>
 			
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<div class="panel-title">Money To Distribute</div>
-				</div>
-				<div class="panel-body">
-					<p>You earned <span style="color:olive; font-size:40px; font-weight:bold" class="money">$42</span> from volunteering to give to local schools involved in Junior Achievement. </p>
-					<form class="form-inline">
-						<div class="form-group">
-						<label for="role-signup">Choose schools to give it to:</label>
-						<select multiple class="form-control" id="role-signup">
-							<option value="volunteer">Volunteer</option>
-							<option value="teacher">Teacher</option>
-							<option value="admin">School Administrator (Principal, Curriculum Coordinator, etc.)</option>
-							<option value="personnel">Junior Achievement Personnel</option>
-						</select>
-						<button type="submit" class="btn btn-primary">Sign Up</button>
-					</form>
-				</div>
-				</div>
+			<div class="page-header">
+				<h1><?php echo $userview["user-firstname"] . " " . $userview["user-lastname"];?></h1>
 			</div>
+			<?php 
+			if(isset($_SESSION["username"])){
+				if($_SESSION["username"] == $userview["user-username"]){
+					require_once "donate.php";
+				}
+			}
+			?>
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<div class="panel-title">Hours Volunteered</div>
@@ -46,19 +37,19 @@
 					<div class="list-group">
 						<li class="list-group-item">
 							<span class="badge">
-								<?php echo round($_SESSION["volunteer-minutes"] / 60) . " hours " . round($_SESSION["volunteer-minutes"] % 60) . " minutes";?>
+								<?php echo round($userview["user-volunteer-minutes"] / 60) . " hours " . round($userview["user-volunteer-minutes"] % 60) . " minutes";?>
 							</span>
 							Total Hours
 						</li>
 						<li class="list-group-item">
 							<span class="badge">
-								<?php echo round($_SESSION["volunteer-minutes-month"] / 60) . " hours " . round($_SESSION["volunteer-minutes-month"] % 60) . " minutes";?>
+								<?php echo round($userview["user-volunteer-minutes-month"] / 60) . " hours " . round($userview["user-volunteer-minutes-month"] % 60) . " minutes";?>
 							</span>
 							Hours Last Month
 						</li>
 						<li class="list-group-item">
 							<span class="badge">
-								<?php echo round($_SESSION["volunteer-minutes-year"] / 60) . " hours " . round($_SESSION["volunteer-minutes-year"] % 60) . " minutes";?>
+								<?php echo round($userview["user-volunteer-minutes-year"] / 60) . " hours " . round($userview["user-volunteer-minutes-year"] % 60) . " minutes";?>
 							</span>
 							Hours Last 12 Months
 						</li>
@@ -73,28 +64,28 @@
 					<div class="list-group">
 						<li class="list-group-item">
 							<span class="badge badge-bronze">
-								<?php echo $_SESSION["vol-bronze"];?>
+								<?php echo $userview["user-vol-bronze"];?>
 							</span>
 							Bronze Medals
 							<img class="badge-img" src="res/medals/bronze.png"/>
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-silver">
-								<?php echo $_SESSION["vol-silver"];?>
+								<?php echo $userview["user-vol-silver"];?>
 							</span>
 							Silver Medals
 							<img class="badge-img" src="res/medals/silver.png"/>
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-gold">
-								<?php echo $_SESSION["vol-gold"];?>
+								<?php echo $userview["user-vol-gold"];?>
 							</span>
 							Gold Medals
 							<img class="badge-img" src="res/medals/gold.png"/>
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-platinum">
-								<?php echo $_SESSION["vol-platinum"];?>
+								<?php echo $userview["user-vol-platinum"];?>
 							</span>
 							Platinum Medals
 							<img class="badge-img" src="res/medals/platinum"/>
@@ -110,33 +101,33 @@
 					<div class="list-group">
 						<li class="list-group-item">
 							<span class="badge badge-bronze">
-								<?php echo $_SESSION["for-rep"];?>
+								<?php echo $userview["user-for-rep"];?>
 							</span>
 							Reputation
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-bronze">
-								<?php echo round($_SESSION["forum-minutes"] / 60) . " hours " . round($_SESSION["forum-minutes"] % 60) . " minutes";?>
+								<?php echo round($userview["user-forum-minutes"] / 60) . " hours " . round($userview["user-forum-minutes"] % 60) . " minutes";?>
 							</span>
 							Forum Minutes
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-bronze">
-								<?php echo $_SESSION["for-bronze"];?>
+								<?php echo $userview["user-for-bronze"];?>
 							</span>
 							Bronze Medals
 							<img class="badge-img" src="res/medals/bronze.png"/>
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-silver">
-								<?php echo $_SESSION["for-silver"];?>
+								<?php echo $userview["user-for-silver"];?>
 							</span>
 							Silver Medals
 							<img class="badge-img" src="res/medals/silver.png"/>
 						</li>
 						<li class="list-group-item">
 							<span class="badge badge-gold">
-								<?php echo $_SESSION["for-gold"];?>
+								<?php echo $userview["user-for-gold"];?>
 							</span>
 							Gold Medals
 							<img class="badge-img" src="res/medals/gold.png"/>

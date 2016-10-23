@@ -1,6 +1,9 @@
 <?php
 
+// loads user information into a returned dictionary from the users database
 function LoadUser($username){
+	$output = [];
+	
 	$servername = "localhost";
 	$serverusername = "root";
 	$password = "";
@@ -20,13 +23,15 @@ function LoadUser($username){
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			foreach($row as $key => $value){
-				$_SESSION[$key] = $value;
+				$output["user-" . $key] = $value;
 			}
 		}
 	} else {
 		echo "No users found with username $username";
 	}
 	$conn->close();
+	
+	return $output;
 }
 
 function TotalMinutes(){
