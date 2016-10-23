@@ -1,0 +1,18 @@
+.login {
+	display:hidden;
+	margin:30px;
+}
+
+.login .form-group {
+	margin:4px;
+}
+
+.login-show:focus .login {
+	display:block;
+	position:fixed;
+	margin:auto;
+}
+
+.btn {
+	background-color:#008752;
+}

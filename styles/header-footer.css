@@ -1,0 +1,82 @@
+/*
+	Styles for the header implementing a dropdown nav menu
+*/
+.header {
+	width:100%;
+	background-color:#d59844;
+}
+.header .ja-logo {
+	height:100px;
+}
+.header .vn-logo {
+	height:60px;
+	float:right;
+}
+.header .nav-tabs {
+	margin-left:20px;
+	font-size:16px;
+}
+.header .nav-tabs a {
+	color:#fff;
+}
+.header .nav-tabs a:hover, .header .nav-tabs .open>a {
+	background-color:#fff;
+	color:#000;
+	border:none;
+}
+.header .nav-tabs a:focus {
+	background-color:#fff;
+	border:none;
+	color:#000;
+}
+.header .nav-tabs .dropdown-menu a {
+	background-color:#fff;
+	color:#000;
+}
+.header .nav-tabs .dropdown-menu a:hover {
+	background-color:#ddd;
+}
+/*.header .nav ul {
+	padding:0px;
+	margin:0px;
+}
+.header .nav li {
+	display:inline-block;
+}
+.header .nav a {
+	display:inline-block;
+	padding:5px;
+	margin:10px;
+	color:#fff;
+}
+.header .nav a:hover {
+	background-color:#fff;
+	color:#000;
+	border-radius:5px;
+}
+.header .dropdown-menu {
+	display:none;
+	z-index:1;
+	position:absolute;
+	background-color:#d59844;
+}
+.header .dropdown-menu li {
+	display:block;
+}
+.header .dropdown-menu-parent:hover .dropdown-menu {
+	display:block;
+}*/
+
+/*
+	Styles for the footer. The footer is really simple.
+	Sticky footer effect implemented in "everything.css"
+*/
+.footer {
+	width:100%;
+	background-color:#d59844;
+	color:#fff;
+	font-size:16px;
+}
+.footer .footer-text {
+	padding:15px;
+}

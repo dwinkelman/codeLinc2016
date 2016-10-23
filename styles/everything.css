@@ -1,0 +1,13 @@
+/*
+	General purpose formatting for all documents
+*/
+html, body {
+	margin:0px;
+	height:100%;
+	font-family:Open Sans;
+}
+
+.content {
+	min-height:100%;
+	margin:30px;
+}
